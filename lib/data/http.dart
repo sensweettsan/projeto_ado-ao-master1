@@ -18,7 +18,12 @@ Future<InfoModel> getAnimalById(int id) async {
   }
 }
 
-confAdocao(id) async {
+confAdocao({
+  required id,
+  required jwt,
+  required void Function() onSuccess,
+  required void Function() onFail,
+}) async {
   // var url = Uri.http('192.168.137.113:1337', '/api/animals/$id');
   var body = jsonEncode({
     "data": {"adotado": true}
@@ -28,14 +33,13 @@ confAdocao(id) async {
       Uri.parse("https://adocao-production.up.railway.app/api/animals/$id"),
       body: body,
       headers: <String, String>{
-        "Authorization":
-            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNjc3ODgzNDQ1LCJleHAiOjE2ODA0NzU0NDV9.JGATwo0MCTGQaeDqEkBH_f9cNqXWdOcu8UlkovVeM9I",
+        "Authorization": "Bearer $jwt",
         "Content-Type": "application/json"
       }).then((response) {
     if (response.statusCode == 200) {
-      print(response.body);
+      onSuccess();
     } else {
-      print('The code does`t work');
+      onFail();
     }
   });
 }

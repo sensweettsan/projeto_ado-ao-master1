@@ -23,7 +23,7 @@ class Animals {
       especie: json["attributes"]["especie"] as String,
       descricao: json["attributes"]["descricao"] as String,
       img: json['attributes']['img']['data']['attributes']['formats']
-          ['thumbnail']['url'] as String,
+          ['medium']['url'] as String,
     );
   }
 }
@@ -31,7 +31,7 @@ class Animals {
 Future<List<Animals>> obterListaAnimais() async {
   List<Animals> listaAnimais = <Animals>[];
   final url = Uri.parse(
-      'https://adocao-production.up.railway.app/api/animals?populate=*');
+      'https://adocao-production.up.railway.app/api/animals?filters[adotado][\$eq]=false&populate=*');
   final resposta = await http.get(url);
 
   if (resposta.statusCode == 200) {

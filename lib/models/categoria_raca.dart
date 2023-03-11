@@ -14,7 +14,7 @@ class Categoria {
       id: json['id'] as int,
       categoria: json['attributes']['categoria'] as String,
       img: json['attributes']['img']['data']['attributes']['formats']
-          ['thumbnail']['url'] as String,
+          ['medium']['url'] as String,
     );
   }
 }

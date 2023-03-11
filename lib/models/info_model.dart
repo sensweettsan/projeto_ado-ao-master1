@@ -25,7 +25,7 @@ class InfoModel {
       json['attributes']['users_permissions_user']['data']['attributes']
           ['username'] as String,
       json['attributes']['nome'] as String,
-      json['attributes']['img']['data']['attributes']['formats']['thumbnail']
+      json['attributes']['img']['data']['attributes']['formats']['medium']
           ['url'] as String,
       json['attributes']['especie'] as String,
       json['attributes']['descricao'] as String,

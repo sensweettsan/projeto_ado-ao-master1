@@ -176,13 +176,21 @@ class _AdocaoInfoState extends State<AdocaoInfo> {
                                               'Você não está logado! Realize login para prosseguir.'),
                                           actions: [
                                             ElevatedButton(
-                                              onPressed: () {
+                                              onPressed: (
+                                              
+                                              ) {
                                                 Navigator.of(context).pop();
                                                 Navigator.pushNamed(
                                                     context, '/login');
                                               },
-                                              child: Text(
+                                              style: ElevatedButton.styleFrom(
+                                              backgroundColor:
+                                            const Color.fromARGB(224, 43, 80, 52),
+                                               ),
+                                              child:  const Text(
+                                               
                                                 'Realize login aqui!',
+
                                               ),
                                             ),
                                           ],
